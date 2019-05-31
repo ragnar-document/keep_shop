@@ -1,0 +1,34 @@
+<!--pages/shopcar/shopcar.wxml-->
+<view class='shopcar_container'>
+  <view class='shopcar_list'>
+    <view class='complies'>
+        <view>
+          <icon type='{{all === true ? "success" : "circle"}}' bindtap='allshow'></icon>
+          <text style='margin-left:10rpx'>全选</text>
+        </view>
+        <view>编辑</view>
+    </view>
+    <view class='shopcar_item' wx:for="{{list}}" wx:key="item">
+      <view class='shopcar_item_select'><icon type="{{ item.selected ? 'success' : 'circle' }}" bindtap='click' data-index='{{item.id}}'></icon></view>
+      <view class='product'><image src='{{item.image}}'></image></view>
+       <view class='product_intro'>
+          <view class='product_title'>{{item.title}}</view>
+          <view class='product_size'>规格：{{item.size}}</view>
+          <view class='product_add'>
+            <view class='product_num'>¥{{item.num}}</view>
+            <view class='goods_count'>
+                  <text bindtap='minus' data-index='{{item.id}}'>-</text>
+                  <input value='{{item.value}}'></input>
+                  <text bindtap='add' data-index='{{item.id}}'>+</text>
+            </view>
+          </view>
+        </view>
+    </view>
+  </view>
+  <view class='shopcar_close'>
+      <view class='shopcar_close_right'>
+        <view style='padding-right:20rpx;'><text class='amount'>总计: </text><text class='amount_num'>{{allcomputer}}</text></view>
+        <view class='shopcar_closecar'><text>结算</text></view>
+      </view>
+  </view>
+</view>

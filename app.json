@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/shophome/shophome",
+    "pages/shopcar/shopcar",
+    "pages/goodsintro/goodsintro"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

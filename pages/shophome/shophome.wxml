@@ -1,0 +1,113 @@
+<!--pages/shophome/shophome.wxml-->
+<view class='shopehome_container'>
+  <view class='coat'>
+      <swiper class='banner'
+          indicator-dots="true"
+          autoplay="true"
+          interval="5000"
+          duration="1000"
+          indicator-active-color="#000000"
+      >
+        <block wx:for="{{imgUrls}}" wx:key="{{item.id}}">
+          <swiper-item class='banner_item'>
+            <image  src="{{item.image_url}}" class="image-swiper" />
+          </swiper-item>
+        </block>
+      </swiper>
+      <view class='goods_mony layout_flex'> 
+          <text class='goods_coat'>¥{{price}}</text>
+          <text class='goods_workoff goods_gray'>已售 {{workoff}}</text>
+      </view>
+      <view class='goods_name'>
+          <view class='goods_title'>瑜伽垫 keep More</view>
+          <text class='goods_detail goods_gray'>轻巧便携，结实耐用，灵活百搭，健身日常自由切换</text>
+      </view>
+      <view class='goods_active'>
+          <view class='goods_active_item'>
+            <text class='active_mettar'>新人礼</text>
+            <navigator class='active_to'>
+                <text>首单惊喜，必备神器低至19元！</text>
+            </navigator>
+          </view>
+          <view class='goods_active_item'>
+            <text class='active_mettar'>运费减免</text>
+            <text class='active_to'>新用户免运费！</text>
+          </view>
+          <view class='goods_active_item'>
+            <text class='active_mettar'>加价购</text>
+              <text class='active_to'>全场满¥149可在购物车换购热销商品！</text>
+          </view>
+      </view>
+      <view class='goods_select'>
+        <view class='section__title'>规格</view>
+        <view class='picker'>已选 粉色瑜伽垫</view>
+      </view>
+      <view class='goods_select'>
+        <view class="section__title">送至</view>
+          <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+            <view class="picker">
+              当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}}
+            </view>
+          </picker>
+      </view>
+      <view class='goods_select'>
+        <view class='section__title'>服务</view>
+        <view class='picker'>7天无理由退货</view>
+      </view>
+      <view class='detail_img'>
+        <view>
+          <image src='https://img.alicdn.com/imgextra/i4/3619780669/O1CN01eN1wTD1GoRUosHssf_!!3619780669.jpg_1200x1200q75.jpg_.webp' mode='aspectFit'></image>
+          <image src='https://img.alicdn.com/imgextra/i3/3619780669/O1CN01kX5SAV1GoRUmzXq8O_!!3619780669.jpg_1200x1200q75.jpg_.webp' mode='aspectFit'></image>
+          <image src='https://img.alicdn.com/imgextra/i2/3619780669/O1CN01ama1Bd1GoRUj7Xjjh_!!3619780669.jpg_1200x1200q75.jpg_.webp' mode='aspectFit'></image>
+          <image src='https://img.alicdn.com/imgextra/i2/3619780669/O1CN01ama1Bd1GoRUj7Xjjh_!!3619780669.jpg_1200x1200q75.jpg_.webp' mode='aspectFit'></image>
+        </view>
+      </view>
+  </view>
+  <view class='goods_purchease layout_flex'>
+      <view class='ic-text'><image class='icon' src='/public/icon/kef.png'></image><text class='fs-x'>客服</text></view>
+      <view class='ic-text'><image class='icon' src='/public/icon/scar.png '></image><text class='fs-x'>购物车</text> </view>
+      <view class='fs-xl gray' bindtap='hanldSelected'>加入购物车</view>
+      <view class='fs-xl green'>立即购买</view>
+  </view>
+  <view class='popup_window' hidden='{{show}}'>
+    <view class='window_item'>
+      <text class='close' bindtap='hindBtn'>x</text>
+      <view class='goods_price'>
+        <view>
+        <image src='https://img.alicdn.com/imgextra/i3/3619780669/O1CN011GoRRL2n6TBHgzp_!!3619780669.jpg_760x760q75.jpg_.webp'></image>
+        </view>
+        <view>
+            <view>¥{{price}}</view>
+            <view class='selected'>已选择:<text>keep More 泡沫瑜伽垫</text></view>
+        </view>
+      </view>
+      <view class='goods_selects'>
+        <view class='select_title'>选择规格</view>
+        <view class='goods_sd'>
+            <view class='goods_sd_bt'>粉红色</view>
+            <view class='goods_sd_bt'>灰色</view>
+        </view>
+      </view>
+      <view class='goods_selects'>
+        <view class='select_title'>选择尺寸</view>
+        <view class='goods_size'>
+            <view class='goods_sd_bt'>40cm*32cm</view>
+            <view class='goods_sd_bt'>50cm*100cm</view>
+        </view>
+      </view>
+      <view class='goods_pq goods_selects'>
+          <view>购买数量</view>
+          <view class='goods_count'>
+            <text>-</text>
+            <input value='{{value}}'></input>
+            <text>+</text>
+          </view>
+      </view>
+      <view class='goods_bt'>
+        <view class='goods_bt_w gray'><navigator url='/pages/shopcar/shopcar'>加入购物车</navigator></view>
+        <view class='goods_bt_w green'>立即购买</view>
+      </view>
+    </view>
+  </view>
+</view>
+  
